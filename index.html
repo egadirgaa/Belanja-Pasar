@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12715b">
+  <title>Belanja Pasar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div>
+            <h1>Belanja Pasar</h1>
+            <p>Pilih barang, cek total, lalu kirim ke WhatsApp.</p>
+          </div>
+          <button class="cart-pill" id="cartPill" type="button" aria-label="Lihat keranjang">
+            <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.2 6h15.1l-1.7 8.3a2 2 0 0 1-2 1.6H8.8a2 2 0 0 1-2-1.7L5.3 3.9H2.8"></path>
+              <circle cx="9.3" cy="20" r="1.3"></circle>
+              <circle cx="18" cy="20" r="1.3"></circle>
+            </svg>
+            <span id="cartPillCount">0</span>
+          </button>
+        </div>
+        <div class="controls">
+          <input class="search" id="searchInput" type="search" placeholder="Cari ikan, telur, sayur..." autocomplete="off">
+          <div class="category-row" id="categoryRow" aria-label="Kategori produk"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="status" id="statusBox">Memuat data produk...</div>
+    <main class="products" id="productList" aria-live="polite"></main>
+
+  </div>
+
+  <section class="cart-modal" id="cartPanel" aria-hidden="true">
+    <div class="cart-backdrop" id="cartBackdrop"></div>
+    <div class="cart-box" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="cart-header">
+        <h2 id="cartTitle">Keranjang</h2>
+        <button class="close-btn" id="closeCartButton" type="button" aria-label="Tutup keranjang">x</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="summary">
+        <span>Total</span>
+        <span id="cartTotal">Rp 0</span>
+      </div>
+      <div class="message-box" id="messageBox"></div>
+      <div class="action-grid">
+        <a class="wa-btn" id="whatsAppButton" href="#" target="_blank" rel="noopener">Kirim WhatsApp</a>
+        <button class="copy-btn" id="copyButton" type="button">Salin Teks</button>
+      </div>
+      <button class="clear-btn" id="clearButton" type="button">Kosongkan Keranjang</button>
+    </div>
+  </section>
+
+  <div class="bottom-total">
+    <div class="bottom-inner">
+      <div>
+        <small id="bottomCount">Keranjang kosong</small>
+        <strong id="bottomTotal">Rp 0</strong>
+      </div>
+      <button class="jump-cart" id="jumpCart" type="button">Cek Keranjang</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
